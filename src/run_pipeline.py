@@ -522,7 +522,7 @@ def main(args):
                  .groupby("day").head(15))
     top.to_csv(os.path.join(args.out_dir, "daily_top_difficult.csv"), index=False)
 
-    print("✅ Done. Outputs written to:", args.out_dir)
+    print(" Done. Outputs written to:", args.out_dir)
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
