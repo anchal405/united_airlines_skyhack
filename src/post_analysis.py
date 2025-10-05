@@ -105,7 +105,7 @@ def geographical_eda(df, out_dir):
     # Check if airport reference data is available
     airports_path = os.path.join("data", "raw", "Airports Data.csv")
     if not os.path.exists(airports_path):
-        print("⚠️ Airports Data.csv not found — skipping geographical EDA.")
+        print(" Airports Data.csv not found — skipping geographical EDA.")
         return pd.DataFrame()
 
     # Load airport reference data (IATA codes, countries, etc.)
@@ -114,7 +114,7 @@ def geographical_eda(df, out_dir):
 
     # Validate required column exists in flight data
     if "scheduled_arrival_station_code" not in df.columns:
-        print("⚠️ scheduled_arrival_station_code column missing — cannot join airports.")
+        print(" scheduled_arrival_station_code column missing — cannot join airports.")
         return pd.DataFrame()
 
     # Merge flight data with airport locations to get country info
@@ -149,7 +149,7 @@ def geographical_eda(df, out_dir):
     plt.savefig(os.path.join(out_dir, "figures", "avg_difficulty_by_country.png"))
     plt.close()
 
-    print(f"🌍 Geographical EDA done → {geo_path}")
+    print(f" Geographical EDA done → {geo_path}")
     return geo_summary
 
 def overall_driver_coeffs(df, features, out_dir):
@@ -256,7 +256,7 @@ def per_destination_driver_coeffs(df, features, out_dir, top_n=5, min_flights=20
 
     # Handle case where no destinations have enough data
     if not rows:
-        print("⚠️  No destinations had enough flights for per-destination regression.")
+        print("No destinations had enough flights for per-destination regression.")
         out = pd.DataFrame(columns=["destination","feature","coef","n"])
     else:
         out = pd.DataFrame(rows)
@@ -264,7 +264,7 @@ def per_destination_driver_coeffs(df, features, out_dir, top_n=5, min_flights=20
         if "destination" in out.columns:
             out = out.sort_values(["destination","coef"], ascending=[True, False])
         else:
-            print("⚠️  'destination' column missing in per-destination results.")
+            print("'destination' column missing in per-destination results.")
 
     # Save per-destination coefficients
     out.to_csv(os.path.join(out_dir, "destination_driver_coeffs.csv"), index=False)
@@ -407,7 +407,7 @@ def main():
     md_path = write_markdown(summ, coefs, per_dest, args.out_dir)
 
     # Print summary of generated outputs
-    print("✅ Post-analysis complete.")
+    print(" Post-analysis complete.")
     print("  - station_summary.csv")
     print("  - station_daily_summary.csv")
     print("  - driver_coefficients.csv")
