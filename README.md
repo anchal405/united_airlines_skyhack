@@ -1,6 +1,6 @@
 # ✈️ United Airlines SkyHack — Flight Difficulty Score Framework
 
-## 🧭 Overview
+## Overview
 This repository contains a data-driven framework to calculate and analyze the **Flight Difficulty Score (FDS)** for United Airlines flights.  
 The system integrates multi-source operational data to identify flights with high turnaround complexity and delay risk.
 
