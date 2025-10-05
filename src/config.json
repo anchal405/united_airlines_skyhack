@@ -1,0 +1,12 @@
+{
+  "difficulty_weights": {
+    "neg_slack_minutes": 0.35,
+    "pax_load_factor": 0.20,
+    "transfer_bag_ratio": 0.20,
+    "special_needs_ratio": 0.15,
+    "basic_econ_ratio": 0.10
+  },
+  "tight_turn_margin_minutes": 10,
+  "late_departure_threshold_minutes": 0,
+  "classification_quantiles": [0.25, 0.75]
+}
